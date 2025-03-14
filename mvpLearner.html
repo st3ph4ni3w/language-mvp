@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+    <meta charset="UTF-8"/>
+    <head>
+        <title> Matching game</title>
+     
+    </head>
+    <body>
+
+        <h1>
+            Welcome to the journey of learning a new language!
+        </h1>
+        <input type="text" placeholder="Spoken language" id="spokenLang"/>
+        <input type="text" placeholder="Learning languange" id="learningLang"/>
+        <button class="btn-primary" id="btnPlay" > Play</button>
+        <script>
+            
+             class Learner{
+
+                constructor(spokenLang, learningLang, username){
+                    this.spokenLang = spokenLang;
+                    this.learningLang= learningLang;
+                    this.username = username;
+                    this.startTime =null;    
+                }
+                playGame(){
+
+                            alert(`Hi! You speak ${this.spokenLang} and your are learning ${this.learningLang}`);
+                            // call the game function 
+                            window.location.href ="language-app.html";
+                        }
+                }
+
+             document.getElementById("btnPlay").addEventListener("click", function() {
+                const spokenLang = document.getElementById("spokenLang").value;
+                const learningLang = document.getElementById("learningLang").value;
+
+                if ( (spokenLang.toLowerCase() === "english") && (learningLang.toLowerCase()==="spanish")){
+                    const learner = new Learner(spokenLang, learningLang);
+                    learner.playGame()
+                }else{
+                    alert("Please enter the languange you want to learn and the spoken language");
+                }
+            });     
+
+        </script>
+    </body>
+</html>
